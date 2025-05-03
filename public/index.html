@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WebSocket Chat</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    #messages { height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>💬 Chat Real-Time</h2>
+  <div id="messages"></div>
+  <input id="input" type="text" placeholder="Ketik pesan..." />
+  <button onclick="sendMessage()">Kirim</button>
+
+  <script>
+    const ws = new WebSocket(`ws://${location.host}`);
+
+    const messages = document.getElementById('messages');
+    const input = document.getElementById('input');
+
+    // 🛠️ Gunakan .text() untuk membaca isi pesan dari Blob
+    ws.onmessage = async (event) => {
+      const text = await event.data.text(); // konversi ke string
+      const msg = document.createElement('div');
+      msg.textContent = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    };
+
+    function sendMessage() {
+      const message = input.value.trim();
+      if (message) {
+        ws.send(message); // kirim pesan sebagai string biasa
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
