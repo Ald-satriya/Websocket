@@ -3,7 +3,17 @@
 
 A real-time chatting application built using **Laravel**, **WebSocket (via Laravel WebSockets)**, and **Bootstrap UI**, allowing seamless two-way communication in real-time.
 
-![Preview Screenshot](./img/Screenshot%202025-05-03%20134727.png)
+![Preview Screenshot](./img/tampilan1.png)
+
+![Preview Screenshot](./img/tampilan1-2.png)
+
+![Preview Screenshot](./img/tampilan1-3.png)
+
+![Preview Screenshot](./img/tampilan2.png)
+
+![Preview Screenshot](./img/tampilan2-2.png)
+
+![Preview Screenshot](./img/tampilan2-3.png)
 
 ---
 
